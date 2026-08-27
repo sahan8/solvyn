@@ -1,0 +1,1 @@
+import{SiteHeader}from"@/components/navigation/site-header";import{SiteFooter}from"@/components/layout/site-footer";import{SearchPage}from"@/components/search/search-page";export const metadata={title:"Search"};export default function Page(){return <><SiteHeader/><SearchPage/><SiteFooter/></>}
