@@ -1,0 +1,4 @@
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+export function ButtonLink({ href, children, variant = "primary", className }) { return <Link href={href} className={cn("group inline-flex min-h-12 items-center justify-between gap-6 px-5 text-sm font-semibold uppercase tracking-[.08em] transition-[background,color,transform] duration-200 active:scale-[.98]", variant === "primary" ? "bg-accent text-black hover:bg-white" : "border border-current hover:bg-white hover:text-black", className)}>{children}<ArrowUpRight aria-hidden size={17} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"/></Link>; }

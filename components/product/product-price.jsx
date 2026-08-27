@@ -1,0 +1,1 @@
+export function ProductPrice({ product }) { return <p className="flex flex-wrap items-center gap-2 text-sm"><span className="font-semibold">${product.price}</span>{product.compareAtPrice && <span className="text-muted-foreground line-through" aria-label={`Original price $${product.compareAtPrice}`}>${product.compareAtPrice}</span>}</p>; }

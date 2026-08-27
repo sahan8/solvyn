@@ -1,0 +1,8 @@
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { getProduct } from "@/lib/commerce/products";
+import { ProductMediaPlaceholder } from "@/components/product/product-media-placeholder";
+import { SiteHeader } from "@/components/navigation/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
+export default async function ProductPlaceholder({ params }) { const { slug } = await params, p = getProduct(slug); if (!p)
+    notFound(); return <><SiteHeader /><main id="main" className="container-shell grid min-h-[80vh] gap-8 pb-20 pt-28 md:grid-cols-2"><ProductMediaPlaceholder product={p} color={p.variants[0].color}/><div className="self-center"><p className="eyebrow text-muted-foreground">Product detail / Day 3</p><h1 className="mt-3 font-display text-[clamp(2.8rem,7vw,6rem)] font-semibold leading-none tracking-[-.065em]">{p.name}</h1><p className="mt-4 max-w-md text-muted-foreground">The full gallery, size selection, delivery, reviews and Fit Check entry point arrive on Day 3.</p><Link href="/shop" className="mt-8 inline-flex min-h-12 items-center bg-black px-6 text-sm font-semibold text-white">BACK TO SHOP</Link></div></main><SiteFooter /></>; }
