@@ -1,2 +1,12 @@
-import Link from "next/link";
-export default function FitCheckPage() { return <main className="grid min-h-dvh place-items-center bg-[#0a0a0a] p-6 text-white"><div className="max-w-2xl"><p className="eyebrow text-[#c7ff2f]">Fit Check / Coming next</p><h1 className="section-title mt-5">Fit built around you.</h1><p className="mt-6 max-w-xl text-white/65">The guided measurement and preference experience is intentionally reserved for a later release. No fit data is collected yet.</p><Link href="/" className="mt-8 inline-block border-b border-white pb-1">Back to SOLVYN →</Link></div></main>; }
+import { FitCheckFlow } from "@/components/fit-check/fit-check-flow";
+import { SiteHeader } from "@/components/navigation/site-header";
+import { getProduct } from "@/lib/commerce/products";
+
+export const metadata = { title: "Fit Check", description: "A transparent SOLVYN starting-size recommendation based on your sizing profile and optional measurements." };
+
+export default async function FitCheckPage({ searchParams }) {
+  const params = await searchParams;
+  const slug = typeof params?.product === "string" && /^[a-z0-9-]{1,40}$/.test(params.product) ? params.product : "";
+  const product = slug ? getProduct(slug) : null;
+  return <><SiteHeader/><FitCheckFlow product={product || null}/></>;
+}

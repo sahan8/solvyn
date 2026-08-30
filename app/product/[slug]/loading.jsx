@@ -1,0 +1,5 @@
+import { SiteHeader } from "@/components/navigation/site-header";
+
+export default function ProductLoading() {
+  return <><SiteHeader/><main id="main" className="container-shell grid gap-8 pb-24 pt-28 lg:grid-cols-[1.25fr_.75fr]" role="status" aria-label="Loading product"><div className="grid gap-2 lg:grid-cols-2"><div className="skeleton aspect-[4/5] lg:col-span-2"/><div className="skeleton aspect-[4/5]"/><div className="skeleton aspect-[4/5]"/></div><div className="space-y-5 lg:pt-8"><div className="skeleton h-4 w-28"/><div className="skeleton h-28 w-full"/><div className="skeleton h-6 w-40"/><div className="flex gap-2">{[1,2,3].map((item)=><div key={item} className="skeleton size-11 rounded-full"/>)}</div><div className="grid grid-cols-4 gap-2">{Array.from({length:8},(_,i)=><div key={i} className="skeleton h-12"/>)}</div><div className="skeleton h-14 w-full"/></div></main></>;
+}
