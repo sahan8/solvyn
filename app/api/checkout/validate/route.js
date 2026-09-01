@@ -1,0 +1,4 @@
+import { NextResponse } from "next/server";
+import { validateCheckoutPayload } from "@/lib/commerce/checkout";
+export async function POST(request){try{const contentType=request.headers.get("content-type")||"";if(!contentType.includes("application/json"))return NextResponse.json({ok:false,errors:[{code:"VALIDATION_ERROR",message:"JSON is required."}]},{status:415});const body=await request.json();const result=validateCheckoutPayload(body);return NextResponse.json(result,{status:result.status});}catch{return NextResponse.json({ok:false,errors:[{code:"VALIDATION_ERROR",message:"The checkout request could not be read."}]},{status:400})}}
+export function GET(){return NextResponse.json({ok:false,errors:[{code:"METHOD_NOT_ALLOWED",message:"Checkout validation requires POST."}]},{status:405,headers:{Allow:"POST"}})}
