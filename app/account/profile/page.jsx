@@ -1,0 +1,2 @@
+import { PageFrame } from "@/components/account/page-frame";import { ProfileForm } from "@/components/account/profile-form";import { requireUser } from "@/lib/auth/session";
+export const metadata={title:"Profile"};export default async function Page(){const user=await requireUser('/account/profile');return <PageFrame eyebrow="Profile" title="YOUR DETAILS." intro="Only the information needed to run your account is collected."><ProfileForm user={user}/></PageFrame>}

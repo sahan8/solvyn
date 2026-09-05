@@ -1,0 +1,2 @@
+import { notFound } from "next/navigation";import { requireUser } from "@/lib/auth/session";import { getOrderForUser } from "@/lib/account/orders";
+export const metadata={title:"Order"};export default async function Page({params}){const {orderId}=await params;const user=await requireUser(`/account/orders/${encodeURIComponent(orderId)}`);const order=await getOrderForUser(user,orderId);if(!order)notFound();return null}

@@ -1,0 +1,3 @@
+"use client";
+import { useState } from "react";
+export function EmailRequestForm() { const [sent,setSent]=useState(false); return <form className="mt-8" onSubmit={(e)=>{e.preventDefault();setSent(true)}}><label htmlFor="email" className="text-sm font-medium">Email<input id="email" name="email" type="email" autoComplete="email" required className="mt-2 min-h-14 w-full border border-black/25 bg-white px-4"/></label><button className="mt-5 min-h-14 w-full bg-black px-5 font-semibold text-white">REQUEST RESET</button><p role="status" className="mt-5 text-sm leading-6">{sent&&"If an account exists for that email, we'll send password reset instructions. Email delivery is not connected in this build."}</p></form> }

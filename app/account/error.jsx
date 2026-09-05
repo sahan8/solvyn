@@ -1,0 +1,2 @@
+"use client";
+export default function Error({reset}){return <main id="main" className="grid min-h-dvh place-items-center px-4"><div className="max-w-xl text-center"><p className="eyebrow">Account unavailable</p><h1 className="mt-4 font-display text-5xl font-semibold tracking-[-.05em]">WE COULD NOT LOAD YOUR ACCOUNT.</h1><p className="mt-5 text-muted-foreground">Your details were not changed. Try loading this page again.</p><button onClick={reset} className="mt-7 min-h-12 bg-black px-6 font-semibold text-white">RETRY</button></div></main>}

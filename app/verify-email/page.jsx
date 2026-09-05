@@ -1,0 +1,3 @@
+import Link from "next/link"; import { AuthPage } from "@/components/auth/auth-page";
+export const metadata={title:"Verify email",robots:{index:false,follow:false}};
+export default function Page(){return <AuthPage eyebrow="Email verification" title="CHECK YOUR EMAIL."><div className="mt-8 border border-black/15 p-5"><p className="font-semibold">VERIFICATION SERVICE NOT CONNECTED</p><p className="mt-2 text-sm leading-6 text-muted-foreground">No verification email has been sent. This route is ready for the future authentication provider.</p></div><Link href="/sign-in" className="mt-6 inline-flex min-h-12 items-center font-semibold underline">BACK TO SIGN IN</Link></AuthPage>}
